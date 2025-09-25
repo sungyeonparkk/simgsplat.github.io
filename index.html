@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BS6Y8MYQMZ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BS6Y8MYQMZ');
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+    <meta name="description"
+        content="SIMSplat: Language-Guided Driving Simulation with Motion-Aware 4D Gaussian Splatting">
+    <meta name="keywords" content="Autonomous Driving, Simulation, 3D Scene Reconstruction">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FirePlace</title>
+
+    
+    <!--FACEBOOK-->
+    <meta property="og:image" content="img/social.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="fireplace3d.github.io" />
+    <meta property="og:title" content="FirePlace" />
+    <meta property="og:description"
+        content="Project page for FirePlace" />
+
+    <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FirePlace" />
+    <meta name="twitter:description"
+        content="Project page for FirePlace" />
+    <meta name="twitter:image" content="img/social.png" />
+
+
+    <!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+    <!-- <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐈</text></svg>"> -->
+    <link rel="icon" type="image/png" href="img/icon.svg">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <link rel="stylesheet" href="css/dics.min.css">
+    <!-- <script src="scripts/dics.min.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', domReady);
+        function domReady() {
+            for (const e of document.querySelectorAll(".b-dics")) {
+                new Dics({
+                    container: e,
+                    textPosition: "top"
+                });
+            }
+        }
+    </script>
+</head>
+
+
+
+
+<body>
+    
+    <div class="banner multiple-color-gradient">
+        <div class="banner-title">
+            <h2 class="col-md-12 text-center title">
+                <!-- <b>CAD</b><img src ="img/icon.png" style="width: 3%; height: 3%; position: relative; top: -3px"> </br>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ -->
+                <img src ="img/icon.png" style="width: 40px; height: 30px; position: relative; top: -3px">
+                <!-- <img src ="img/logo.png" style="width: 8vw; height: auto; position: relative; top: -3px"></br> -->
+                <b>FirePlace</b></br> 
+                <b style="font-weight: 400">Geometric Refinements of LLM Common Sense Reasoning for 3D Object Placement</b>
+                </br>
+                <!-- <small>arXiv</small> -->
+            </h2>
+            <div class="col-md-12 text-center">
+                <div style="margin-bottom: 0.7em; margin-top:0.2em" class="authors">
+                    <a  class="authors_link" href="https://ianhuang.ai/">Ian Huang</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a  class="authors_link" href="https://www.linkedin.com/in/yanan-bao-95676230"> Yanan Bao </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a  class="authors_link" href="https://openreview.net/profile?id=~Karen_Truong1">Karen Truong</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a  class="authors_link" href="https://www.linkedin.com/in/howard-zhou-0a34b84">Howard Zhou</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a  class="authors_link" href="https://cordeliaschmid.github.io/">Cordelia Schmid</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a  class="authors_link" href="https://profiles.stanford.edu/leonidas-guibas">Leonidas Guibas</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a  class="authors_link" href="https://www.alirezafathi.org/">Alireza Fathi</a>
+                </div>
+
+                <div style="margin-bottom: 0.5em;" class="affiliations">
+                    Google DeepMind, Stanford University
+                </div>
+                 
+                <div>
+                    <h4>
+                        <b> CVPR 2025 (Highlight) </b>
+                    </h4>
+                </div>
+
+                <!-- <div style="margin-bottom: 0.7em;" class="col-md-12 text-center">
+                    *denotes equal contribution
+                </div> -->
+
+            </div>
+            <div class=" text-center button_row">
+              <!-- Second button -->
+                <div class="nav nav-justified button_content">
+                    <div class="button_item">
+                        <a href="https://arxiv.org/abs/2503.04919" class="button" onclick="gtag('event', 'click', {'event_category': 'Button', 'event_label': 'To Arxiv'});">
+                          <!-- <i class="fas fa-paperclip"></i>  -->
+                          <i class="fa-solid fa-paperclip"></i> 
+                          Paper
+                        </a>
+                    </div>
+                    <div class="button_item">
+                        <a href="https://x.com/IanHuang3D/status/1905021827552063850" class="button" onclick="gtag('event', 'click', {'event_category': 'Button', 'event_label': 'To Twitter'});">
+                          <i class="fa-brands fa-twitter"></i>
+                          Twitter
+                        </a>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <!-- <div class="banner-visual" id="banner-instance-container"> -->
+            <!-- TODO : replace with animation -->
+            <!-- <img src="img/options_front.png" class="banner-img"> -->
+        <!-- </div>  -->
+    </div>
+
+    
+    <div class="container" id="main">
+    
+        <div style="background-color: rgb(255, 196, 0); padding: 15px; border-radius: 5px; width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%);">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h4>
+                        <b> Tldr; Your multimodal LLM places objects more realistically when it can extract finer scene geometry and visually verify placements.
+                        </b>
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <!-- <image src="img/rays.jpg" class="img-responsive" alt="overview"><br> -->
+                <p class="text-justify">
+            Scene generation with 3D assets presents a complex challenge, requiring both high-level semantic understanding and low-level geometric reasoning. While Multimodal Large Language Models (MLLMs) excel at semantic tasks, their application to 3D scene generation is hindered by their limited grounding on 3D geometry. In this paper, we investigate how to best work with MLLMs in an object placement task. Towards this goal, we introduce a novel framework, FirePlace, that applies existing MLLMs in (1) 3D geometric reasoning and the extraction of relevant geometric details from the 3D scene, (2) constructing and solving geometric constraints on the extracted low-level geometry, and (3) pruning for final placements that conform to common sense. By combining geometric reasoning with real-world understanding of MLLMs, our method can propose object placements that satisfy both geometric constraints as well as high-level semantic common-sense considerations. Our experiments show that these capabilities allow our method to place objects more effectively in complex scenes with intricate geometry, surpassing the quality of prior work.
+                </p>
+                <br>
+                
+            </div>
+        </div>
+
+    
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b> What is FirePlace? </b>
+                </h3>
+            <p class="text-justify">
+                FirePlace is a multimodal LLM (MLLM) framework that generates object placements for new 3D objects you want inserted into
+                your 3D scene, according to a language instruction. The input is (1) a 3D scene,
+                (2) a 3D object, and (3) a text description of where the object should be placed.
+                The output of Fireplace is an updated 3D scene with the object placed accordingly.
+                Here's a few examples, with the inserted objects in red.
+            </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="image-sample another-container" style="overflow-x: auto; height: 650px; position: relative; scrollbar-width: thick; scrollbar-color: #888 #f1f1f1;">
+                    <img src="img/qualitative_examples.png" style="height: 100%; display: block; margin: 0 auto;" alt="Qualitative sample">
+                    <div class="scroll-indicator right" data-scroll-container="another-container" style="display: none;">→</div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Materials -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b> 3 Challenges of Object Placement </b>
+                </h3> 
+
+                <style>
+                    .circle-number {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        background-color: #000;
+                        color: #fff;
+                        margin-right: 10px;
+                    }
+                </style>
+                <div class="text-justify" style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 40px;">
+                        <div style="flex: 1;">
+                            <p class="text-left"><span class="circle-number">1</span> 
+                                <b>Access to fine-grained geometry.</b> 
+                                Enabling realistic placements requires geometry information beyond bounding boxes. 
+                                But how should geometric details be communicated to MLLMs? Prior works communicate bounding box parameters.
+                            
+                            </p>
+                            <p class="text-left"> For instance,
+                                <code>teddy bear on the chair != BBOX_OF[teddy bear] on BBOX_OF[chair]</code>.
+                            </p> 
+                        </div>
+                        <div style="flex: 1;">
+                            <img src="gifs/fig1_anim.gif" class="img-responsive" alt="Placeholder image 1">
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 40px;">
+                        <div style="flex: 1;">
+                            <img src="gifs/fig2_anim.gif" class="img-responsive" alt="Placeholder image 2">
+                        </div>
+                        <div style="flex: 1;">
+                            <p class="text-right"><span class="circle-number">2</span> 
+                                <b>Contextual understanding of object instances.</b> 
+                                Objects that are placed into existing scenes need a way to tell different instances of 
+                                identical objects apart, using the context in which they appear.
+                            </p>
+                            <p class="text-right">
+                                The left chair's occupied. So we should put the bear on the right chair.
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 40px;">
+                        <div style="flex: 1;">
+                            <p class="text-left"><span class="circle-number">3</span> 
+                                <b> Common-sense reasoning about placements. </b>
+                                Placements that satisfy geometric constraints may not satisfy common sense reasoning
+                                about what's aesthetic, accessible or functional. These are hard to communicate using 
+                                raw geometric constraints.
+                             </p>
+                            <p class="text-left">
+                                Of the 4 placements shown of a teddy bear on the chair, one of them makes the most "sense".
+                                You know because you can see them.
+                            </p>
+                        </div>
+                        <div style="flex: 1;">
+                            <img src="gifs/fig3_anim.gif" class="img-responsive" alt="Placeholder image 3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    <b>FirePlace's Approach </b> 
+                </h3> 
+
+                <!-- <p>
+                    FirePlace addresses these challenges by introducing a framework 
+                    where multimodal LLMs can access geometric tools and constraint solvers
+                    to produce geometrically feasible solutions and choose among these solutions
+                    by rendering the placements, then pruning them according to plausibility.
+                </p> -->
+
+                <p class="text-justify">
+                    Given a 3D scene, an object, and a language input, FirePlace follows a 
+                    five-stage process: <b>(1)</b> an MLLM generates a list of potential constraints, 
+                    specifying relevant scene and object parts in natural language; <b>(2)</b> the 
+                    MLLM resolves these references using Batched Visual Selection, our method of scaling
+                    inference compute to improve MLLM visual reasoning (read more in the <a href="https://arxiv.org/abs/2503.04919">
+                    paper</a>!); <b>(3)</b> it calls geometric processing tools to extract 
+                    convex hulls of interaction surfaces, which are then refined using Batched 
+                    Visual Selection to ensure the right surfaces are used in the constraints; <b>(4)</b> mathematical 
+                    constraints are formed and solved to determine geometrically valid placements; 
+                    and <b>(5)</b> FirePlace renders these placements, selecting the best ones based 
+                    on softer criteria like aesthetics, functionality, and accessibility.
+
+<!-- 
+                    Fireplace takes in a 3D scene, a 3D object, and a language input.
+                    In stage 1, an MLLM generates a list of potential constraints, with 
+                    natural language references to the parts of the scene objects and the
+                    input object that should apply to the constraint.
+                    In stage 2, MLLMs resolve the reference to the scene objects in each constraint. 
+                    In order to do this well, we introduce
+                    a method to scale inference compute spent on the visual reasoning, called
+                    Batched Visual Selection (read more about it <a href="https://arxiv.org/abs/2503.04919">
+                    here!</a>).
+                    In stage 3, the MLLM calls geometric processing tools to extract convex hulls of
+                    relevant interaction surfaces, then used Batched Visual Selection to select the
+                    correct ones for the geometric constraints.
+                    In stage 4, form the mathematical constraint functions, then solve for geometrically
+                    plausible placements using constraint solvers.
+                    Finally, in stage 5, the system renders and selects among the geometrically feasible
+                    placements based on visual reasoning about the softer aspects of placement, like
+                    aesthetics, functionality and accessibility. -->
+                </p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+            <p class="text-justify">
+                 
+            </p>
+            </div> 
+            <!-- <div class="col-md-12">
+                <div class="image-sample">
+                    <img src="img/qualitative_problem_solving_process_v3.png" class="img-responsive" alt="Qualitative sample">
+                </div>
+            </div> -->
+            <div class="col-md-12">
+                <div class="image-sample another-container2" style="overflow-x: auto; height: 400px; position: relative; scrollbar-width: thick; scrollbar-color: #888 #f1f1f1;">
+                    <img src="img/qualitative_problem_solving_process_v3.png" style="height: 100%; display: block; margin: 0 auto;" alt="FirePlace Methodology">
+                    <div class="scroll-indicator right" data-scroll-container="another-container2" style="display: none;">→</div>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <p> If you found the paper useful, please cite:
+                    </p>
+                    <textarea id="bibtex" class="form-control" readonly>
+@article{huang2025fireplace,
+title={FirePlace: Geometric Refinements of LLM Common Sense Reasoning for 3D Object Placement},
+author={Huang, Ian and Bao, Yanan and Truong, Karen and Zhou, Howard and Schmid, Cordelia and Guibas, Leonidas and Fathi, Alireza},
+journal={arXiv preprint arXiv:2503.04919},
+year={2025}
+}
+                    </textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="website-footer">
+            <a href="https://ianhuang.ai/">
+                <img src ="img/personal_logo_gray.png" style="width: 30px; height: 30px; position: relative;" alt="Who made this?" onmouseover="this.src='img/personal_logo_purple.png';" onmouseout="this.src='img/personal_logo_gray.png';"> 
+            </a>
+        </div>
+        
+        <script>
+            var isPhone = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            console.log("is Phone:", isPhone) ;
+
+            // document.addEventListener('DOMContentLoaded', function() {
+            //     const container = document.querySelector('.image-sample');
+            //     const indicator = document.querySelector('.scroll-indicator');
+                
+            //     function checkOverflow() {
+            //         const hasOverflow = container.scrollWidth > container.clientWidth;
+            //         indicator.style.display = hasOverflow ? 'block' : 'none';
+            //     }
+
+            //     // Check on load
+            //     checkOverflow();
+                
+            //     // Check on window resize
+            //     window.addEventListener('resize', checkOverflow);
+                
+            //     // Hide indicator when scrolled to the end
+            //     container.addEventListener('scroll', function() {
+            //         if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+            //             indicator.style.display = 'none';
+            //         } else {
+            //             checkOverflow();
+            //         }
+            //     });
+
+            //     // Optional: Scroll right when clicking the arrow
+            //     indicator.addEventListener('click', function() {
+            //         container.scrollBy({
+            //             left: 100,
+            //             behavior: 'smooth'
+            //         });
+            //     });
+            // });
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize all scroll indicators
+                document.querySelectorAll('.scroll-indicator').forEach(indicator => {
+                    const containerId = indicator.dataset.scrollContainer;
+                    const container = indicator.closest(`.${containerId}`);
+                    
+                    function checkOverflow() {
+                        const isAtEnd = Math.abs(container.scrollWidth - container.clientWidth - container.scrollLeft) < 10;
+                        const hasOverflow = container.scrollWidth > container.clientWidth;
+                        
+                        // Only show indicator if there's overflow AND we're not at the end
+                        indicator.style.display = (hasOverflow && !isAtEnd) ? 'block' : 'none';
+                    }
+
+                    // Check on load
+                    checkOverflow();
+                    
+                    // Check on window resize
+                    window.addEventListener('resize', checkOverflow);
+                    
+                    // Check on scroll
+                    container.addEventListener('scroll', checkOverflow);
+
+                    // Handle both click and touch events
+                    indicator.addEventListener('click', scrollRight);
+                    indicator.addEventListener('touchend', scrollRight);
+
+                    function scrollRight(e) {
+                        // Prevent default touch behavior
+                        e.preventDefault();
+                        
+                        container.scrollBy({
+                            left: 100,
+                            behavior: 'smooth'
+                        });
+
+                        // Check overflow state after animation completes
+                        setTimeout(checkOverflow, 500);
+                    }
+                });
+            });
+        </script>
+
+
+</body>
+
+
+
+</html>
