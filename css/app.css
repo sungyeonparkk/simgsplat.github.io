@@ -42,6 +42,10 @@ background: radial-gradient(circle,rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1
     margin-bottom: 10px;
 }
 
+.affiliations span {
+  margin-right: 1em; /* adjust spacing between items */
+}
+
 .CodeMirror {
     font-size: .8em;
     height: auto;
